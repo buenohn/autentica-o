@@ -1,26 +1,56 @@
 import userRepository from "../repositories/UserRepository.js";
 
 const userService = {
-    recuperarUsuario: async () =>{
+
+    recuperarUsuario: async () => {
+
         const resultado = await userRepository.selecionar();
+
         return resultado;
+
     },
-    recuperarUsuarioPorId: async (userId) =>{
-        const resultado = await userRepository.recuperarUsuario(userId);
+
+    recuperarUsuarioPorId: async (userId) => {
+
+        const resultado = await userRepository.selecionarPorID(userId);
+
         return resultado;
+
     },
-    deletarUsuario: async (userId) =>{
+
+    deletarUsuario: async (userId) => {
+
         const resultado = await userRepository.deletar(userId);
+
         return resultado;
+
     },
-    criarUsuario: async (user) =>{
-        const resultado = await userRepository.criar(user.name, user.email. user.passworld);
+
+    criarUsuario: async (user) => {
+
+        const resultado = await userRepository.criar(
+            user.name,
+            user.email,
+            user.password
+        );
+
         return resultado;
+
     },
-    atualizarUsuario: async (user) =>{
-        const resultado = await userRepository.atualizar(user.name, user.email. user.passworld, user.id);
+
+    atualizarUsuario: async (user) => {
+
+        const resultado = await userRepository.atualizar(
+            user.name,
+            user.email,
+            user.password,
+            user.id
+        );
+
         return resultado;
+
     },
+
 };
 
 export default userService;

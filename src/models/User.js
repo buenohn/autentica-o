@@ -1,41 +1,51 @@
-class User{
+class User {
+
     #id;
     #name;
     #email;
-    #password
+    #password;
 
-    constructor(name, email, passworld, id = null){
+    constructor(name, email, password, id = null) {
+
         this.#name = name;
         this.#email = email;
-        this.#password = passworld;
+        this.#password = password;
         this.#id = id;
+
     }
-    //id
+
+    // id
     get id() {
         return this.#id;
     }
-    //name
+
+    // name
     get name() {
         return this.#name;
     }
-    set name (value){
+
+    set name(value) {
         this.#name = value;
     }
-    //email
+
+    // email
     get email() {
-        return this.#email
+        return this.#email;
     }
-    set email (value){
+
+    set email(value) {
         this.#email = value;
     }
-    //passworld
-    get passworld() {
-        return this.#password
+
+    // password
+    get password() {
+        return this.#password;
     }
-    set passworld(value){
-        this.#password = value
+
+    set password(value) {
+        this.#password = value;
     }
-    
+
 }
 
 export default User;
