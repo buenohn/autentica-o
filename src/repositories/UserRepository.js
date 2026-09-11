@@ -22,6 +22,17 @@ const userRepository = {
 
     },
 
+     selecionarPorEmail: async (email) => {
+
+        const sql = 'SELECT * FROM users WHERE email = ?;';
+
+        const [rows] = await pool.execute(sql, [email]);
+
+        return rows;
+
+    },
+
+
     deletar: async (userId) => {
 
         const sql = 'DELETE FROM users WHERE id = ?;';
@@ -32,13 +43,13 @@ const userRepository = {
 
     },
 
-    criar: async (name, email, password) => {
+    criar: async (name, email, password, role) => {
 
-        const sql = 'INSERT INTO users VALUES(null, ?, ?, ?);';
+        const sql = 'INSERT INTO users VALUES(null, ?, ?, ?, ?);';
 
         const [rows] = await pool.execute(
             sql,
-            [name, email, password]
+            [name, email, password, role]
         );
 
         return rows;

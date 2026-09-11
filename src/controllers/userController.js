@@ -29,12 +29,15 @@ const userController = {
 
     try {
 
-        const { name, email, password } = req.body;
+        const { name, email, password, role } = req.body;
+
+        const hashedPassword = await userService.hashPassword(password);
 
         const user = new User(
             name,
             email,
-            password
+            hashedPassword,
+            role
         );
 
         const resultado = await userService.criarUsuario(user);
